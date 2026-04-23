@@ -62,6 +62,45 @@ python scripts/plot_results.py
 
 The ensemble weights models by 1/RMSE per state.
 
+## HTTP API
+
+Start the server:
+
+```bash
+python -m src.serving.api
+# Binds to 0.0.0.0:8000
+```
+
+**`GET /health`** — check dataset load status.
+
+```bash
+curl http://localhost:8000/health
+```
+
+```json
+{"status": "ok", "rows_loaded": 18720, "states": 51, "date_range": "2010-01 → 2025-12"}
+```
+
+**`POST /api/forecast`** — run all models and return metrics.
+
+```bash
+curl -X POST http://localhost:8000/api/forecast \
+  -H "Content-Type: application/json" \
+  -d '{"states": ["CA", "NY"], "test_weeks": 52, "run_cv": false}'
+```
+
+Request body fields (all optional):
+
+| Field | Type | Default | Description |
+|-------|------|---------|-------------|
+| `states` | `string[]` | all states | Two-letter state codes, e.g. `["CA","TX"]` |
+| `test_weeks` | `int` | `52` | Weeks held out for evaluation (8–260) |
+| `run_cv` | `bool` | `false` | Run expanding-window cross-validation (slower) |
+
+The response includes RMSE/MAE/MAPE/R² per model, ensemble weights per state, paths to the output CSVs, and optional CV metrics. Output files are also written to `output/` on the server.
+
+Interactive docs are available at `http://localhost:8000/docs`.
+
 ## Tests
 
 ```bash
