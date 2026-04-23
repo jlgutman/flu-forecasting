@@ -1,0 +1,20 @@
+﻿Column Name,Data Type,Description,Source,Notes
+STATE,string,Abbreviated State,Derived from Climate Data,No Nulls
+STATE NAME,string,Full State Name,Derived from Climate Data,No Nulls
+DATE,date,YYYY-MM,NOAA Climate Data Online Global Summary of the Month,No Nulls
+RHAV,float,Average Relative Humidity,NOAA Climate Data Online Global Summary of the Month,Nulls indicate data that wasn't collected.
+RHMN,float,Minimum Relative Humidity,NOAA Climate Data Online Global Summary of the Month,Nulls indicate data that wasn't collected.
+RHMX,float,Maximum Relative Humidity,NOAA Climate Data Online Global Summary of the Month,Nulls indicate data that wasn't collected.
+RHRR,float,"Relative Humidity Relative Range - (RHMX - RHMN)/RHAV
+Represents amount of humidity  fluctuation relative to typical humidity levels",Calculated,Nulls indicate that key data for calculation was missing.
+TAVG,float,Average Temperature,NOAA Climate Data Online Global Summary of the Month,Nulls indicate data that wasn't collected.
+TMIN,float,Minimum Temperature,NOAA Climate Data Online Global Summary of the Month,Nulls indicate data that wasn't collected.
+TMAX,float,Maximum Temperature,NOAA Climate Data Online Global Summary of the Month,Nulls indicate data that wasn't collected.
+TRR,float,"Temperature Relative Range - (TMAX - TMIN)/TAVG 
+Represents amount of temperature fluctuation relative to typical temperatures",Calculated,Nulls indicate that key data for calculation was missing.
+STPOP,int,Population by State,2010 US Census,Nulls indicate data that wasn't collected.
+STLA,int,Sq Mile of Land Area by State,2010 US Census,Nulls indicate data that wasn't collected.
+POPPCT,float,% of state population that is urban,2010 US Census,Nulls indicate data that wasn't collected.
+POPDEN,float,Population density in urban areas,2010 US Census,Nulls indicate data that wasn't collected.
+CRD,float,"Crowding - ln(POPDEN×POPPCT) 
+This formula is a proxy for contact intensity, it captures how densely people are concentrated and how much of the population is exposed to those conditions. Multiplying the variables captures both how crowded environments are and how many people experience them, while the logarithm reduces the impact of extreme values and reflects that increases in density matter less at higher levels. Higher values indicate that a larger portion of the population is living in dense environments with greater potential for frequent contact and disease transmission, whereas lower values reflect more dispersed populations with fewer opportunities for spread.",Calculated,Calculated
