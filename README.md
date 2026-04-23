@@ -1,4 +1,4 @@
-# flu-forecast
+# flu-forecasting
 
 Multi-model influenza-like illness (ILI) forecasting pipeline using CDC weekly state data. Produces 4-week-ahead predictions per U.S. state via ARIMAX, Holt-Winters, XGBoost, and a BiLSTM ensemble.
 
@@ -7,8 +7,8 @@ Multi-model influenza-like illness (ILI) forecasting pipeline using CDC weekly s
 Requires Python ≥ 3.10 and TensorFlow ≥ 2.15 (use a conda environment for TF on macOS/Python 3.13+).
 
 ```bash
-conda create -n flu-forecast python=3.13
-conda activate flu-forecast
+conda create -n flu-forecasting python=3.13
+conda activate flu-forecasting
 pip install -r requirements.txt
 pip install -e .
 ```
